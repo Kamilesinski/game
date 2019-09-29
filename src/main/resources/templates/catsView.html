@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kociarstwo</title>
+</head>
+<body>
+
+
+<h1> Dodawanie </h1>
+
+<form th:object="${newCat}" th:action="@{/cats}" method="post">
+    <p>name: <input type = "text" th:field="*{name}"></p>
+    <p>race: <input type = "text" th:field="*{race}"></p>
+    <p>color: <input type = "text" th:field="*{color}"></p>
+<!--    <p>race: <input type = "text"></p>-->
+<!--    <p>color: <input type = "text"></p>-->
+    <p><input type="submit" value="add new cat"></p>
+
+</form>
+
+<h1>Usuwanie</h1>
+<form th:object="${newCat}" th:action="@{/remove-cat}" method="post">
+    <p>name: <input type = "text" th:field="*{name}"></p>
+    <p><input type="submit" value="remove cat"></p>
+    </form>
+
+<h1>Wypisywanie</h1>
+
+   <tr th:each="cat: ${catListModel}">
+
+<!--       <td th:text="${cat.getName()}"></td><br>-->
+<!--       <td th:text="${cat.getRace()}"></td><br>-->
+<!--       <td th:text="${cat.getColor()}"></td>-->
+
+       <td th:text="${cat.getName()}"></td><br>
+       <td th:text="${cat.getBreed()}"></td><br>
+       <td th:text="${cat.getColor()}"></td><br>
+       <p>===================================</p>
+   </tr>
+
+
+
+</body>
+</html>
